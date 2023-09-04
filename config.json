@@ -1,0 +1,15 @@
+{
+    "appname": "smtpdog",
+    "hostname": "mail.example",
+    "listen": "0.0.0.0:25",
+    "site": [
+        {
+            "name": "example.com",
+            "key": "gsdKKLsjj"
+        },
+        {
+            "name": "example.net",
+            "key": "gsdKKLsjjLKds2236"
+        }
+    ]
+}
