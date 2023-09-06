@@ -8,6 +8,7 @@ confile = open("config.json",'r')
 config = json.load(confile)
 confile.close()
 keys={}
+exptime = int(config["expire"])
 
 def rmfile(site,key,fileid):
     """
@@ -35,7 +36,7 @@ logs=log.splitlines()
 for line in logs:
     xline = line.split(" ")
     print(xline)
-    if nowtime -60*60*24*1 > int(xline[0]):
+    if nowtime -exptime > int(xline[0]):
         print("\n+++++++++++++++++++++")
         print(f"文件:{xline[1]}({xline[0]})来自{xline[2]} 已过期,应当删除。")
         res=rmfile(xline[2],keys[xline[2]],xline[1])
@@ -48,7 +49,7 @@ for line in logs:
         print("+++++++++++++++++++++\n")
         # newlines.append(line)
 logfile = open("files.log",'w')
-logfile.writelines(newlines)
+logfile.writelines([f"{line}\n" for line in newlines])
 logfile.close()
 
 

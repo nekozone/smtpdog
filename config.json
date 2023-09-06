@@ -11,5 +11,6 @@
             "name": "example.net",
             "key": "gsdKKLsjjLKds2236"
         }
-    ]
+    ],
+    "expire": 1209600
 }
